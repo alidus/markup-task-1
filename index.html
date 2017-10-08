@@ -79,9 +79,9 @@
         </p>
 
         <code>
-                        this.timings['look-ma-im-start'] = Date.now();
-                        this.timings['look-ma-finish'] = Date.now();
-                    </code>
+                this.timings['look-ma-im-start'] = Date.now();
+                this.timings['look-ma-finish'] = Date.now();
+        </code>
 
         <p>
             C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при отправке рассчитываются. На этапах разница между “end” и “start” не считается, а все вычисления производятся в конце:
@@ -97,7 +97,7 @@
 
         <code>
                         serverResponse=50&domUpdate=60
-                </code>
+        </code>
 
         <h3>
             Как мы ускоряем
@@ -135,7 +135,7 @@
             Для окончательного выбора библиотеки нам нужно сравнить:
         </p>
 
-        <table border>
+        <table>
             <thead>
                 <tr>
                     <th>Библиотека</th>
@@ -163,41 +163,40 @@
 
         <p>Формат файла с патчами для проекта выглядит так:</p>
         <pre>
-        <code>
-                [
-                        {
-                        "k": "jane.css",
-                        "p": [patch],
-                        "s": 4554
-                        },
-                        {
-                        "k": "jane.css",
-                        "p": [patch],
-                        "s": 4554
-                        }
-                ]
-        </code>
-                </pre>
+            <code>
+                    [
+                            {
+                            "k": "jane.css",
+                            "p": [patch],
+                            "s": 4554
+                            },
+                            {
+                            "k": "jane.css",
+                            "p": [patch],
+                            "s": 4554
+                            }
+                    ]
+            </code>
+        </pre>
 
         <p>
             То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У каждого объекта есть три свойства. k — названия ключа в localStorage для этого ресурса. p — патч для ресурса, который сгенерировал vcdiff. s — чексумма для ресурса актуальной
             версии, чтобы потом можно было проверить правильность наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
         </p>
 
-        <pre>
-                <p>
-                дано &epsilon;, x<sub>0</sub>
-                инициализировать H<sub>0</sub>
-                k &equals; 0
+
+        <p>
+            <pre>
+                дано &epsilon;, x<sub>0</sub> инициализировать H<sub>0</sub> k &equals; 0
                 <strong>while</strong> &#8741;&nabla;&#8753;<sub>k</sub>&#8741; > &epsilon;
-                        найти направление p<sub>k</sub> &equals; -C<sub>k</sub>&nabla;&#8753;<sub><keygen></sub>
-                        вычислить x<sub>k+1</sub> &equals; x<sub>k</sub> &plus; &alpha;<sub>k</sub>p<sub>k</sub> удовлетворяет условиям Вольфе
-                        обозначить s<sub>k</sub> &equals; x<sub>k+1</sub> &minus; x<sub>k</sub> и y<sub>k</sub> &equals; &nabla;&#8753;<sub>k+1</sub>-&#8753;<sub>k</sub>
-                        вычислить C<sub>k+1</sub>
-                        k &equals; k + 1
+                    найти направление p<sub>k</sub> &equals; -C<sub>k</sub>&nabla;&#8753;<sub>k</sub>
+                    вычислить x<sub>k+1</sub> &equals; x<sub>k</sub> &plus; &alpha;<sub>k</sub>p<sub>k</sub> удовлетворяет условиям Вольфе
+                    обозначить s<sub>k</sub> &equals; x<sub>k+1</sub> &minus; x<sub>k</sub> и y<sub>k</sub> &equals; &nabla;&#8753;<sub>k+1</sub>&minus;&#8753;<sub>k</sub>
+                    вычислить C<sub>k+1</sub> k &equals; k + 1
                 <strong>end</strong>
-                </p>
-                </pre>
+            </pre>
+        </p>
+
 
         <p>
             Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS) — итерационный метод численной оптимизации, предназначенный для нахождения локального максимума/минимума нелинейного функционала без ограничений.
@@ -214,7 +213,7 @@
 
         <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
 
-        <table border>
+        <table>
             <thead>
                 <tr>
                     <th>Релиз</th>
